@@ -1,0 +1,88 @@
+Quantitative Study Replication
+
+Model 1: All DCJ used
+```{r}
+data <- read.csv('CleanData1_0.csv')
+model <- glm(DCJ_used ~ mobcap + fightcap_high + fightcap_moderate + fightcap_low + intens + polity + is_leftist_group + incomp + terrcont+ year_of_conflict + cold_war, family = binomial(link = "logit"), data = data)
+coefs <- summary(model)$coefficients
+odds <- exp(coef(model)) - 1
+summary(model)
+
+```
+
+Model 2: Conciliatory Processes
+```{r}
+model <- glm(conciliatory ~ mobcap + fightcap_high + fightcap_moderate + fightcap_low + intens + polity + is_leftist_group + incomp + terrcont+ year_of_conflict + cold_war, family = binomial(link = "logit"), data = data)
+summary(model)
+coefs <- summary(model)$coefficients
+odds <- exp(coef(model)) - 1
+data.frame(coefs, odds)
+```
+
+Model 3: Coercive Processes
+```{r}
+model <- glm(coercive ~ mobcap + fightcap_high + fightcap_moderate + fightcap_low + intens + polity + is_leftist_group + incomp + terrcont+ year_of_conflict + cold_war, family = binomial(link = "logit"), data = data)
+summary(model)
+coefs <- summary(model)$coefficients
+odds <- exp(coef(model)) - 1
+data.frame(coefs, odds)
+```
+
+
+Model 4: Truth Commissions
+```{r}
+data <- read.csv('CleanData_conc.csv')
+model <- glm(truth ~ mobcap + fightcap_high + fightcap_moderate + fightcap_low + intens + polity + is_leftist_group + incomp + terrcont+ year_of_conflict + cold_war, family = binomial(link = "logit"), data = data)
+summary(model)
+coefs <- summary(model)$coefficients
+odds <- exp(coef(model)) - 1
+data.frame(coefs, odds)
+```
+
+
+Model 5: Reparations
+```{r}
+model <- glm(rep ~ mobcap + fightcap_high + fightcap_moderate + fightcap_low + intens + polity + is_leftist_group + incomp + terrcont+ year_of_conflict + cold_war, family = binomial(link = "logit"), data = data)
+summary(model)
+coefs <- summary(model)$coefficients
+odds <- exp(coef(model)) - 1
+data.frame(coefs, odds)
+```
+
+Model 6: Amnesty
+```{r}
+model <- glm(amnesty ~ mobcap + fightcap_high + fightcap_moderate + fightcap_low + intens + polity + is_leftist_group + incomp + terrcont+ year_of_conflict + cold_war, family = binomial(link = "logit"), data = data)
+summary(model)
+coefs <- summary(model)$coefficients
+odds <- exp(coef(model)) - 1
+data.frame(coefs, odds)
+```
+
+Model 7: Exile
+```{r}
+data <- read.csv('CleanData_coer.csv')
+model <- glm(exile ~ mobcap + fightcap_high + fightcap_moderate + fightcap_low + intens + polity + is_leftist_group + incomp + terrcont+ year_of_conflict + cold_war, family = binomial(link = "logit"), data = data)
+summary(model)
+coefs <- summary(model)$coefficients
+odds <- exp(coef(model)) - 1
+data.frame(coefs, odds)
+```
+
+Model 8: Purge
+```{r}
+model <- glm(purge ~ mobcap + fightcap_high + fightcap_moderate + fightcap_low + intens + polity + is_leftist_group + incomp + terrcont+ year_of_conflict + cold_war, family = binomial(link = "logit"), data = data)
+summary(model)
+coefs <- summary(model)$coefficients
+odds <- exp(coef(model)) - 1
+data.frame(coefs, odds)
+```
+
+
+Model 9: Trial
+```{r}
+model <- glm(trial ~ mobcap + fightcap_high + fightcap_moderate + fightcap_low + intens + polity + is_leftist_group + incomp + terrcont+ year_of_conflict + cold_war, family = binomial(link = "logit"), data = data)
+summary(model)
+coefs <- summary(model)$coefficients
+odds <- exp(coef(model)) - 1
+data.frame(coefs, odds)
+```
